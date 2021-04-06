@@ -54,6 +54,8 @@ function game() {
     }
 }
 
+
+// helper function 
 function findWinner(scoreList) {
     let playerScore = 0;
     let computerScore = 0;
