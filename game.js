@@ -1,5 +1,26 @@
 const choices = ["rock", "paper", "scissors"];
 
+let score = []
+let roundCounter = 0
+
+const btnChoices = document.querySelectorAll(".choices");
+console.log(btnChoices);
+
+btnChoices.forEach((btnChoice) => {
+    btnChoice.addEventListener("click", (e) => {
+        console.log("yes");
+        const chosenButton = document.querySelector(`#btn-${e.target.getAttribute('data-choice')}`);
+        if (!chosenButton) return;
+        let playerChoice = chosenButton.getAttribute('data-choice')
+        playRound(score, playerChoice);
+    })
+})
+
+function playRound(score, playerChoice) {
+    score.push(compareResults(playerChoice,computerPlay()));
+    return score;
+}
+
 function computerPlay() {
     let computerChoice = choices[Math.floor(Math.random() * choices.length)];
     console.log(computerChoice);
@@ -7,7 +28,8 @@ function computerPlay() {
 }
 
 function getUserInput() {
-    return prompt("Choose and type out rock, paper, or scissors!").toLowerCase();
+    let choice = "paper";
+    return choice;
 }
 
 function compareResults(one, two) {
@@ -36,13 +58,27 @@ function compareResults(one, two) {
     return result;
     }
 
-function game() {
+/* function game() {
+    console.log("game start");
     let score = [];
     for (i=0; i < 5; i++){
-        score.push(compareResults(getUserInput(),computerPlay()));
+        playRound(score);
     }
-    winner = findWinner(score);
-    console.log(winner);
+    findWinner(score);
+} */
+
+
+function findWinner(scoreList) {
+    let playerScore = 0;
+    let computerScore = 0;
+    let winner = '';
+    for (x = 0; x < scoreList.length; x++) {
+        if (scoreList[x] == 1) { playerScore++;}
+        else if (scoreList[x]  == 2) { computerScore ++;}
+    }
+    if (playerScore == computerScore) { winner = 'tied'; return winner;}
+    else if (playerScore > computerScore) { winner = 'player'; return winner;}
+    winner = 'computer';
     if (winner == "tied") {
         console.log("Game resulted in a tie!");
     }   
@@ -53,31 +89,3 @@ function game() {
         console.log("Computer won the game!");
     }
 }
-
-function findWinner(scoreList) {
-    let playerScore = 0;
-    let computerScore = 0;
-    let winner = '';
-    for (x = 0; x < scoreList.length; x++) {
-        if (scoreList[x] == 1) {
-            playerScore++;
-        }
-        else if (scoreList[x]  == 2) {
-            computerScore ++;
-        }
-    }
-    if (playerScore == computerScore) {
-        winner = 'tied';
-        return winner;
-    }
-    else if (playerScore > computerScore) {
-        winner = 'player';
-        return winner;
-    }
-    winner = 'computer';
-    return winner;
-
-}
-
-
-console.log(game());
