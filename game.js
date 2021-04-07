@@ -7,7 +7,9 @@ let computerScore = 0;
 
 const btnChoices = document.querySelectorAll(".choices");
 const playerP = document.querySelector("#player-score");
-const computerP = document.querySelector("#computer-score")
+const computerP = document.querySelector("#computer-score");
+const resultsP = document.querySelector("#round-result");
+const winnerP = document.querySelector("#winner");
 
 btnChoices.forEach((btnChoice) => {
     btnChoice.addEventListener("click", (e) => { 
@@ -19,16 +21,16 @@ btnChoices.forEach((btnChoice) => {
         console.log(score);
         console.log(computerScore);
         updateScores();
-        if (playerScore == 5) { console.log("You win the game!") };
-        if (computerScore == 5) { console.log("Computer won the game!") };
+        if (playerScore == 5) { winnerP.textContent = "You win the game!"; };
+        if (computerScore == 5) { winnerP.textContent = "Computer won the game!"; };
 
     })
 })
 
 function updateScores() {
     console.log(playerP);
-    playerP.innerHTML = `${playerScore}`;
-    computerP.innerHTML = `${computerScore}`;
+    playerP.textContent = `${playerScore}`;
+    computerP.textContent = `${computerScore}`;
 }
 
 function playRound(score, playerChoice) {
@@ -66,7 +68,7 @@ function compareResults(one, two) {
         console.log("SOMETHING WENT WRONG");
         result = -1;
     }
-    console.log(message);
+    resultsP.textContent = `${message}`;
     return result;
     }
 
