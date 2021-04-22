@@ -1,12 +1,57 @@
 
 
-
-
-.choices{
-    font-size: 1.5rem;
-    width: 8rem;
+body {
+    background: black;
 }
 
+h1 {
+    pointer-events: none;
+    color: white;
+    font-size: 3rem;
+}
+
+main {
+    margin: auto;
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.choices{
+    font-size: 1.8rem;
+    width: 8rem;
+    margin: 6px;
+}
+
+.choices:hover{
+    transform: scale(1.2);
+}
+
+
+#score-div {
+    text-align: center;
+}
+
+#score-board{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.score {
+    margin: auto 40px;
+}
+
+
 p {
+    pointer-events: none;
+    font-size: 1.5rem;
+    color: whitesmoke;
     display: inline;
+}
+
+#btn-reset {
+
 }

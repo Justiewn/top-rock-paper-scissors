@@ -7,7 +7,9 @@
         <link href="style.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <main>
+        
+        <main id="main-section">
+            <h1>Rock Paper Scissors!</h1>
             <button id='btn-rock' data-choice='rock' class='choices'>Rock</button>
             <button id='btn-paper' data-choice='paper' class='choices'>Paper</button>
             <button id='btn-scissors' data-choice='scissors' class='choices'>Scissors</button>
@@ -17,9 +19,12 @@
             </div>
             <br><br>
             <div id="score-div">
-                <p>First to 5 points wins!</p><br>
-                <p>Player: <p id="player-score">0</p></p><br>
-                <p>Computer: <p id="computer-score">0</p></p>
+                <p>First to 5 points wins!</p>
+                <div id='score-board'>
+                    <p class="score">Player 🡢<p id="player-score">0</p></p><br>
+                    <p id="computer-score" class="score">0<p>🡠 Computer</p></p>
+                </div>
+                
             </div>
             <br><br>
             <div id="winner-div">
@@ -27,13 +32,7 @@
             </div>
             <br><br>
             <button id='btn-reset' onclick="resetGame()">Reset</button>
-
         </main> 
-
-
-
-
-
         <script src="game.js"></script>
     </body>
 </html>
